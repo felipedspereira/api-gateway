@@ -9,11 +9,11 @@ Both apps use Maven. Just run *mvn install*, then run *"java -jar name-of-the-ge
 
 ### Endpoints
 
-#### Rest services
+#### Rest services (backend endpoints)
 localhost:3030/veiculos/1 <br/>
 localhost:3030/habilitacoes/1
 
 
-#### Gateway orchestrator
+#### Gateway orchestrator (external endpoint)
 localhost:8080/api/condutor
 
