@@ -4,7 +4,7 @@
 This project is intended to simulate an API Gateway for orchestration of rest services, data transformation, among other stuff..
 
 ### How to run 
-Both apps use Maven. Just run *mvn install*, then run *"java -jar name-of-the-generated-package.jar"*
+Both apps are using Maven. Just run *mvn install*, then run *"java -jar name-of-the-generated-package.jar"*
 
 
 ### Endpoints
