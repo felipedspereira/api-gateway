@@ -13,21 +13,23 @@ public class VeiculoREST extends RouteBuilder {
 
 	@Override
 	public void configure() throws Exception {
-		restConfiguration().host("localhost").port(3030);
+		restConfiguration().enableCORS(true);
 
 		rest()
 			.get("condutor").route()
+				.setHeader("hostPadrao", constant("localhost:3030"))
 				.to("direct:habilitacoes")
 				.to("direct:veiculos")
-				.to("direct:transforma");
+				.to("direct:transforma")
+			.endRest();
 		
 		from("direct:habilitacoes")
-			.to("http4://localhost:3030/habilitacoes/1?bridgeEndpoint=true")
+			.toD("http4:${headers.hostPadrao}/habilitacoes/1?bridgeEndpoint=true")
 				.setProperty("habilitacao", simple("${in.body}"));
 		
 		
 		from("direct:veiculos")
-			.to("http4://localhost:3030/veiculos/1?bridgeEndpoint=true")
+			.toD("http4:${headers.hostPadrao}/veiculos/1?bridgeEndpoint=true")
 				.setProperty("veiculo", simple("${in.body}"));
 		
 		from("direct:transforma")

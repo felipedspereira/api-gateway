@@ -12,7 +12,7 @@ public class ApplicationCamel  {
     public static void main(String[] args) {
       SpringApplication.run(ApplicationCamel.class, args);
     }
-
+    
     @Bean
     public ServletRegistrationBean servletRegistrationBean() {
         ServletRegistrationBean registration = new ServletRegistrationBean(new CamelHttpTransportServlet(), "/api/*");
